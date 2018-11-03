@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Main Page</title>
+</head>
+<body ng-app="demo">
+<hr/>
+<div class="container" ng-controller="coffeeController">
+    <div class="row">
+        <label>Coffee</label> <input type="text" ng-model="coffeeDto.coffeeName" class="input-sm spacing"/>
+        <label>Products</label> <input type="text" ng-model="products" ng-list class="input-sm custom-width spacing"
+                                     placeholder="use comma to separate Products"/>
+        <button ng-click="saveCoffee()" class="btn btn-sm btn-info">Save Coffee</button>
+    </div>
+    <hr/>
+    <div class="row">
+        <p>{{allCoffees | json}}</p>
+    </div>
+    <hr/>
+    <div class="row" ng-repeat="coffee in allCoffees">
+        <div class="">
+            <h3>{{coffee.coffeeName}}</h3>
+            <span ng-repeat="product in coffee.productDtos" class="spacing">{{product.productName}}</span>
+        </div>
+    </div>
+</div>
+</body>
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="js/app/app.js"></script>
+<script src="js/app/CoffeeController.js"></script>
+<script src="js/app/CoffeeService.js"></script>
+<link rel="stylesheet" href="css/lib/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/app/app.css"/>
+</html>

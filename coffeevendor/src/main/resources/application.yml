@@ -1,0 +1,50 @@
+server:
+  port: 8080
+  #contextPath: /v1
+
+logging:
+  level: 
+   org.springframework.web: off
+   org.springframework.controller: off
+   org.hibernate: off
+      
+ # spring:
+   # h2:
+    # console:
+     # enabled: true
+     # path: /h2
+
+spring:
+  resources:
+    static-locations: /resources/static/css/
+    chain:
+      strategy:
+        content:
+          enabled: true
+          paths: /**
+           
+ # mvc:
+  # view:
+   # prefix: /WEB-INF/views/issue/
+    
+    #suffix: .jsp
+  thymeleaf:
+    cache: false
+    enabled: true  
+
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: mypassword
+    driver-class-name: com.mysql.jdbc.Driver
+    
+      
+    
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+
